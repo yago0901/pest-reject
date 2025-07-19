@@ -39,7 +39,7 @@ const CookieBanner = () => {
             Utilizziamo i cookie per migliorare la vostra esperienza. Alcuni cookie sono essenziali, altri ci aiutano ad
             analizzare il traffico. Oltre ad accettare di fornirci i vostri dati attraverso il modulo, potete scegliere
             quali cookie accettare.
-            <Link href="/politica-de-cookies" className={styles.cookiePolicyLink}>
+            <Link href="https://gdpr.eu/cookies/" className={styles.cookiePolicyLink}>
               Scopri di più nella nostra Politica dei Cookie
             </Link>
           </p>

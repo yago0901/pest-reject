@@ -54,6 +54,7 @@ const Faq = ({ scrollToForm }) => (
       </div>
       <div className={styles.faqRodape}>
         <p>Questo sito e questo prodotto sono conformi a tutte le leggi locali in Italia. Sito affiliato Adcombo</p>
+        <p>* Cliccando sul pulsante “Ordina” confermate di aver letto l'Informativa sulla privacy e di acconsentire al trattamento dei vostri dati personali.</p>
       </div>
     </div>
   </section>

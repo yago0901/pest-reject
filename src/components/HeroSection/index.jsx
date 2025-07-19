@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import styles from "../../app/page.module.css";
 
 const HeroSection = ({ scrollToForm }) => (
@@ -15,9 +16,7 @@ const HeroSection = ({ scrollToForm }) => (
       </div>
     </div>
     <div className={styles.heroTitle}>
-      <h1>
-        Collega e Dimentica il Problema
-      </h1>
+      <h1>Collega e Dimentica il Problema</h1>
       <p>Libera la tua casa da insetti e roditori, senza sostanze chimiche e senza rumore.</p>
     </div>
     <div className={styles.containerFlex}>
@@ -28,7 +27,9 @@ const HeroSection = ({ scrollToForm }) => (
             <h2>soluzione definitiva, ecologica e sicura</h2>
           </div>
           <div>
-            <p>Con tecnologia ultrasonica all'avanguardia, elimina topi, scarafaggi e insetti senza sostanze chimiche,</p>
+            <p>
+              Con tecnologia ultrasonica all'avanguardia, elimina topi, scarafaggi e insetti senza sostanze chimiche,
+            </p>
             <p>sporcizia o rischi per la tua famiglia - basta collegarlo e dimenticare il problema!</p>
           </div>
         </div>
@@ -37,7 +38,7 @@ const HeroSection = ({ scrollToForm }) => (
             <b>Pest Reject</b> 50% di sconto
           </p>
           <div className={styles.imageHero}>
-            <img alt="Weight Berry" src="mosquito.png" />
+            <Image alt="zanzara" src="/mosquito.webp" width={500} height={300} loading="lazy" />
           </div>
         </div>
         <div className={styles.containerButton}>
@@ -47,7 +48,7 @@ const HeroSection = ({ scrollToForm }) => (
         </div>
       </div>
       <div className={styles.left}>
-        <img alt="Weight Berry" src="product-on.png" />
+        <Image alt="Pest Reject" src="/product-on.webp" width={500} height={300} loading="lazy" />
       </div>
     </div>
   </header>

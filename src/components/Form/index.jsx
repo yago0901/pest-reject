@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import styles from "../../app/page.module.css";
 import formatItalianPhone from "../../utils/validationPhone";
+import Image from "next/image";
 
 const Form = () => {
   const [formData, setFormData] = useState({ name: "", phone: "", marketingConsent: false });
@@ -129,22 +130,43 @@ const Form = () => {
               </div>
 
               <div className={styles.productContainer}>
-                <img src="produto-caixa.png" alt="Pest Reject" className={styles.productImage} />
+                <Image
+                  alt="Pest Reject"
+                  src="/produto-caixa.webp"
+                  width={500}
+                  height={300}
+                  loading="lazy"
+                  className={styles.productImage}
+                />
                 <div className={styles.stockWarning}>⚠️ ULTIMI 12 PEZZI DISPONIBILI!</div>
               </div>
 
               <div className={styles.securitySeals}>
                 <div className={styles.sealItem}>
-                  <img src="selo-seguranca.png" alt="Sito sicuro" />
-                  <img src="selo-garantia.png" alt="Garanzia 30 giorni" />
+                  <Image alt="Sito sicuro" src="/selo-seguranca.webp" width={500} height={300} loading="lazy" />
+                  <Image alt="Garanzia 30 giorni" src="/selo-garantia.webp" width={500} height={300} loading="lazy" />
                 </div>
               </div>
             </div>
           </div>
           <form className={styles.faqFormItem} onSubmit={handleSubmit}>
             <div className={styles.containerForm}>
-              <img className={styles.faqFormGif} src="50off.gif" alt="Sconto 50%" />
-              <img className={styles.faqFormImage} src="product.png" alt="Pest Reject" />
+              <Image
+                alt="Sconto 50%"
+                src="/50off.gif"
+                width={500}
+                height={300}
+                loading="lazy"
+                className={styles.faqFormGif}
+              />
+              <Image
+                alt="Pest Reject"
+                src="/product.webp"
+                width={500}
+                height={300}
+                loading="lazy"
+                className={styles.faqFormImage}
+              />
               <input
                 className={styles.input}
                 type="text"

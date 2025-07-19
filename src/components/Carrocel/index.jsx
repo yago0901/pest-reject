@@ -1,4 +1,5 @@
 "use client";
+import Image from 'next/image';
 import styles from "../../app/page.module.css";
 const Carrocel = () => (
   <section className={styles.carrocel}>
@@ -14,7 +15,7 @@ const Carrocel = () => (
       <div className={styles.carrocelDetails}>
         <div className={styles.carrocelItem}>
           <div className={styles.carrocelItemContainer}>
-            <img alt="Zanzare" src="mosquito-silhueta.png" />
+            <Image alt={`Zanzare`} src="/mosquito-silhueta.webp" width={500} height={300} loading="lazy" />
             <h2>Zanzare</h2>
           </div>
           <div>
@@ -24,7 +25,7 @@ const Carrocel = () => (
         </div>
         <div className={styles.carrocelItem}>
           <div className={styles.carrocelItemContainer}>
-            <img alt="Scarafaggi" src="barata-silhueta.png" />
+            <Image alt="Scarafaggi" src="/barata-silhueta.webp" width={500} height={300} loading="lazy" />
             <h2>Scarafaggi</h2>
           </div>
           <div>
@@ -34,7 +35,7 @@ const Carrocel = () => (
         </div>
         <div className={styles.carrocelItem}>
           <div className={styles.carrocelItemContainer}>
-            <img alt="Topi" src="rato-silhueta.png" />
+            <Image alt="Topi" src="/rato-silhueta.webp" width={500} height={300} loading="lazy" />
             <h2>Topi</h2>
           </div>
           <div>
@@ -44,7 +45,7 @@ const Carrocel = () => (
         </div>
         <div className={styles.carrocelItem}>
           <div className={styles.carrocelItemContainer}>
-            <img alt="władza" src="formiga-silhueta.png" />
+            <Image alt="formica" src="/formiga-silhueta.webp" width={500} height={300} loading="lazy" />
             <h2>Formiche</h2>
           </div>
           <div>

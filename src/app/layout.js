@@ -1,4 +1,5 @@
 import { Montserrat } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 import styles from "../app/page.module.css";
@@ -34,31 +35,21 @@ export default function RootLayout({ children }) {
     <html lang="it">
       <head>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"></link>
-        {/* Google Tag Manager */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-              })(window,document,'script','dataLayer','GTM-P9HBP5QX');
-            `,
-          }}
+        {/* Google Ads gtag.js */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-16760579148"
+          strategy="afterInteractive"
         />
-        {/* End Google Tag Manager */}
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-16760579148');
+          `}
+        </Script>
       </head>
       <body className={`${montserrat.variable} `} suppressHydrationWarning>
-        {/* Google Tag Manager (noscript) */}
-        <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-P9HBP5QX"
-            height="0"
-            width="0"
-            style={{ display: "none", visibility: "hidden" }}
-          ></iframe>
-        </noscript>
-        {/* End Google Tag Manager (noscript) */}
         {children}
         <footer className={styles.footer}>
           <div className={styles.container}>

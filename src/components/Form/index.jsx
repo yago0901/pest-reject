@@ -92,27 +92,10 @@ const Form = () => {
         <div className={styles.faqFormDetails}>
           <div className={styles.faqFormItem2}>
             <div className={styles.containerForm}>
-              <div className={styles.offerHeader}>
-                <h1 className={styles.offerTitle}>⚠️ OFFERTA LAMPÒ - SCADE TRA:</h1>
-                <div className={styles.countdown}>
-                  <div className={styles.countdownSegment}>
-                    <span className={styles.countdownNumber}>{timeLeft.hours.toString().padStart(2, "0")}</span>
-                    <span className={styles.countdownLabel}>Ore</span>
-                  </div>
-                  <span className={styles.countdownColon}>:</span>
-                  <div className={styles.countdownSegment}>
-                    <span className={styles.countdownNumber}>{timeLeft.minutes.toString().padStart(2, "0")}</span>
-                    <span className={styles.countdownLabel}>Minuti</span>
-                  </div>
-                  <span className={styles.countdownColon}>:</span>
-                  <div className={styles.countdownSegment}>
-                    <span className={styles.countdownNumber}>{timeLeft.seconds.toString().padStart(2, "0")}</span>
-                    <span className={styles.countdownLabel}>Secondi</span>
-                  </div>
-                </div>
-              </div>
+              <div className={styles.stockWarning}>⚠️ ULTIMI 12 PEZZI DISPONIBILI!</div>
 
               <div className={styles.benefitsContainer}>
+                <h1 className={styles.offerTitle}>⚠️ OFFERTA LAMPÒ - SCADE TRA:</h1>
                 <ul className={styles.benefitsList}>
                   <li>
                     <span className={styles.checkIcon}>✓</span> Elimina topi, scarafaggi e insetti in 24 ore
@@ -138,7 +121,6 @@ const Form = () => {
                   loading="lazy"
                   className={styles.productImage}
                 />
-                <div className={styles.stockWarning}>⚠️ ULTIMI 12 PEZZI DISPONIBILI!</div>
               </div>
 
               <div className={styles.securitySeals}>
@@ -159,14 +141,43 @@ const Form = () => {
                 loading="lazy"
                 className={styles.faqFormGif}
               />
-              <Image
-                alt="Pest Reject"
-                src="/product.webp"
-                width={500}
-                height={300}
-                loading="lazy"
-                className={styles.faqFormImage}
-              />
+              <div style={{ width: "100%", position: "relative", display: 'flex', justifyContent: 'center' }}>
+                <Image
+                  alt="Pest Reject"
+                  src="/product-form.webp"
+                  width={500}
+                  height={300}
+                  loading="lazy"
+                  className={styles.faqFormImage}
+                />
+
+                <div className={styles.offerHeader}>
+                  <div className={styles.countdown}>
+                    <div className={styles.countdownSegment}>
+                      <span className={styles.countdownNumber}>{timeLeft.hours.toString().padStart(2, "0")}</span>
+                      <span className={styles.countdownLabel}>Ore</span>
+                    </div>
+                    <span className={styles.countdownColon}>:</span>
+                    <div className={styles.countdownSegment}>
+                      <span className={styles.countdownNumber}>{timeLeft.minutes.toString().padStart(2, "0")}</span>
+                      <span className={styles.countdownLabel}>Minuti</span>
+                    </div>
+                    <span className={styles.countdownColon}>:</span>
+                    <div className={styles.countdownSegment}>
+                      <span className={styles.countdownNumber}>{timeLeft.seconds.toString().padStart(2, "0")}</span>
+                      <span className={styles.countdownLabel}>Secondi</span>
+                    </div>
+                  </div>
+                  <div className={styles.offerValue}>
+                    <div style={{ display: "flex", flexDirection: "column", gap: "1rem", alignItems: "flex-start" }}>
+                      <p className={styles.price}>
+                        <span className={styles.oldPrice}>Da: 118 €</span>
+                      </p>
+                      <h1 className={styles.newPrice}>A: 59 €</h1>
+                    </div>
+                  </div>
+                </div>
+              </div>
               <input
                 className={styles.input}
                 type="text"
@@ -191,12 +202,6 @@ const Form = () => {
                   Accetto di ricevere comunicazioni di marketing (es. offerte speciali) via email/SMS. Potrò annullare
                   l'iscrizione in qualsiasi momento.
                 </label>
-              </div>
-              <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-                <p className={styles.price}>
-                  <span className={styles.oldPrice}>Da: 118 €</span>
-                </p>
-                <h1 className={styles.newPrice}>A: 59 €</h1>
               </div>
               <div className={styles.containerBtn}>
                 <button type="submit" className={styles.formButton}>

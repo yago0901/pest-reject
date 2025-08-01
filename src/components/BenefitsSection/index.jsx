@@ -37,8 +37,6 @@ const BenefitsSection = ({ scrollToForm }) => (
           text="Grazie agli impulsi ultrasonici periodici, risolve il problema senza creare assuefazione"
           scrollToForm={scrollToForm}
         />
-      </div>
-      <div className={styles.benefitsGrid}>
         <BenefitsItem
           imgSrc="radar.webp"
           title="Ampia Copertura"

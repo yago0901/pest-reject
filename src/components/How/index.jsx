@@ -10,7 +10,7 @@ const How = () => (
       </div>
       <div className={styles.howDetails}>
         <div className={styles.howItem}>
-          <Image alt="Ordine" src="/atendimento.webp" width={150} height={300} loading="lazy" />
+          <Image alt="Ordine" src="/atendimento.svg" width={150} height={300} loading="lazy" />
           <div>
             <h1>1. Fai il tuo ordine</h1>
             <p>
@@ -20,7 +20,7 @@ const How = () => (
           </div>
         </div>
         <div className={styles.howItem}>
-          <Image alt="Spedizione" src="/envio.webp" width={150} height={300} loading="lazy" />
+          <Image alt="Spedizione" src="/envio.svg" width={150} height={300} loading="lazy" />
           <div>
             <h1>2. Spedizione express</h1>
             <p>
@@ -30,14 +30,14 @@ const How = () => (
           </div>
         </div>
         <div className={styles.howItem}>
-          <Image alt="Consegna" src="/recebimento.webp" width={150} height={300} loading="lazy" />
+          <Image alt="Consegna" src="/recebimento.svg" width={150} height={300} loading="lazy" />
           <div>
             <h1>3. Ricevi il prodotto</h1>
             <p>Ricevi comodamente a casa il tuo dispositivo funzionante e pronto all'uso.</p>
           </div>
         </div>
         <div className={styles.howItem}>
-          <Image alt="Pagamento" src="/pagamento.webp" width={150} height={300} loading="lazy" />
+          <Image alt="Pagamento" src="/pagamento.svg" width={150} height={300} loading="lazy" />
           <div>
             <h1>4. Pagamento sicuro</h1>
             <p>

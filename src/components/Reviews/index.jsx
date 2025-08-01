@@ -1,8 +1,16 @@
-import Image from 'next/image';
+import Image from "next/image";
 import styles from "../../app/page.module.css";
 const ReviewItem = ({ imgSrc, children, scrollToForm }) => (
   <div className={styles.reviewsItem}>
-    <Image alt="Pest Reject" src={`/${imgSrc}`} width={500} height={300} loading="lazy" />
+    <div className={styles.reviewsItemImage}>
+    <Image
+      alt="Pest Reject"
+      src={`/${imgSrc}`}
+      width={500}
+      height={300}
+      loading="lazy"
+    />
+    </div>
     <p>{children}</p>
     <div className={styles.benefitsFirstButton}>
       <button onClick={scrollToForm} className={styles.heroBtn}>

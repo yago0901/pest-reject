@@ -1,44 +1,38 @@
 const formatItalianPhone = (phone) => {
-  // Remove tudo que não for dígito
   let cleaned = phone.replace(/\D/g, '');
 
   // Remove prefixos internacionais (+39, 0039, 39)
-  if (cleaned.match(/^(0039|\+39|39)/)) {
-    cleaned = cleaned.replace(/^(0039|\+39|39)/, '');
-  }
+  cleaned = cleaned.replace(/^(0039|\+39|39)/, '');
 
-  // Verifica se o número começa com 0 (fixo) ou 3 (móvel)
-  const isLandline = cleaned.match(/^0/);
-  const isMobile = cleaned.match(/^3/);
+  // Regras principais:
+  // - Celulares: 10 dígitos, começando com 3
+  // - Fixos: 6-11 dígitos, começando com 0 (ou adiciona 0 se faltar)
+  // - Números curtos (8-9 dígitos) são tratados como celulares ou fixos
 
-  // Validação para números italianos:
-  // - Fixos: 6-11 dígitos (incluindo o 0 inicial)
-  // - Móveis: 10 dígitos (incluindo o 3 inicial)
-  // - Se tiver entre 2-9 dígitos, assume que está faltando o prefixo 0 (para fixos)
-  // - Se tiver 9 dígitos começando com 3, assume ser móvel sem o 39
-
-  // Caso 1: Número completo (fixo ou móvel)
-  if ((isLandline && cleaned.length >= 6 && cleaned.length <= 11) || 
-      (isMobile && cleaned.length === 10)) {
+  // Caso 1: Celular válido (10 dígitos, começa com 3)
+  if (cleaned.match(/^3\d{9}$/)) {
     return cleaned;
   }
 
-  // Caso 2: Número de fixo sem o 0 inicial (2-9 dígitos)
-  if (!isLandline && !isMobile && cleaned.length >= 2 && cleaned.length <= 9) {
-    return '0' + cleaned;
-  }
-
-  // Caso 3: Número móvel sem o 39 (8 dígitos)
-  if (!isLandline && cleaned.length === 8) {
-    return '3' + cleaned;
-  }
-
-  // Caso 4: Número móvel com 39 (10 dígitos no total)
-  if (cleaned.length === 10 && cleaned.match(/^39/)) {
+  // Caso 2: Fixo válido (6-11 dígitos, começa com 0)
+  if (cleaned.match(/^0\d{5,10}$/)) {
     return cleaned;
   }
 
-  // Caso 5: Número muito curto ou muito longo
+  // Caso 3: Número de 8-9 dígitos (assume celular ou fixo sem prefixo)
+  if (cleaned.length >= 8 && cleaned.length <= 9) {
+    if (cleaned.match(/^[0-2]/)) {
+      return `0${cleaned}`; // Fixo sem 0
+    } else {
+      return `3${cleaned}`; // Celular sem 3
+    }
+  }
+
+  // Caso 4: Número com 39 incluso (12 dígitos)
+  if (cleaned.match(/^39\d{10}$/)) {
+    return cleaned.substring(2); // Remove 39, mantém 10 dígitos
+  }
+
   return null; // Inválido
 };
 

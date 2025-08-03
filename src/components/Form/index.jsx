@@ -1,10 +1,12 @@
 "use client";
 import { useEffect, useState } from "react";
 import styles from "../../app/page.module.css";
-import formatItalianPhone from "../../utils/validationPhone";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+import formatItalianPhone from '@/utils/validationPhone';
 
 const Form = () => {
+  const router = useRouter();
   const [formData, setFormData] = useState({ name: "", phone: "", marketingConsent: false });
   const [responseMessage, setResponseMessage] = useState("");
   const [timeLeft, setTimeLeft] = useState({
@@ -61,7 +63,6 @@ const Form = () => {
       alert("Numero di telefono non valido, sono richiesti 10 cifre.");
       return;
     }
-
     try {
       const res = await fetch("/api/forms", {
         method: "POST",
@@ -71,13 +72,13 @@ const Form = () => {
         body: JSON.stringify({ name: formData.name, phone: formData.phone }),
       });
 
-      const data = await res.json();
+     const data = await res.json();
 
       setResponseMessage(data.message || data.error);
 
       if (res.ok) {
-        alert("Ordine inviato con successo!");
         setFormData({ name: "", phone: "" });
+        router.push("/thanks-you");
       } else {
         alert(`Erro: ${data.error}`);
       }
@@ -141,7 +142,7 @@ const Form = () => {
                 loading="lazy"
                 className={styles.faqFormGif}
               />
-              <div style={{ width: "100%", position: "relative", display: 'flex', justifyContent: 'center' }}>
+              <div style={{ width: "100%", position: "relative", display: "flex", justifyContent: "center" }}>
                 <Image
                   alt="Pest Reject"
                   src="/product-form.webp"

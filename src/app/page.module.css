@@ -940,6 +940,10 @@
 
 @media (max-width: 850px) {
 
+  .countdown{
+    display: none;
+  }
+
   .rightText{
     display: none;
   }
@@ -1001,6 +1005,14 @@
 
   .faqFormItem3 details {
     width: 98%;
+  }
+
+  .oldPrice{
+    font-size: 20px;
+  }
+
+   .newPrice{
+    font-size: 30px;
   }
 
   .input {
